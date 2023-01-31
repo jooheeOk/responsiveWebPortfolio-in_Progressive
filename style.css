@@ -11,17 +11,17 @@ custom properties
   이렇게 자식요소에게만 상속이 가능해서 
   대게 css에서 변수를 선언할 때는 -> :root{}에 선언해줌(가장 최상위 요소) 
 */
+:root {
+  /* 최상위 루트에 변수 정의 - 모든 node에서 사용이 가능해짐 */
+  --font-size: 32px;
+}
 
 .first-list {
   background: thistle;
   margin-left: 8px;
-  /* 변수 정의 */
-  --font-size: 32px;
-  /* 변수 읽기 */
   font-size: var(--font-size);
 }
 
-/* first-list의 자식요소인 li에는 접근이 가능함 */
 .first-list li {
   font-size: var(--font-size);
 }
@@ -30,6 +30,5 @@ custom properties
   background: thistle;
   color: whitesmoke;
   margin-left: 16px;
-  /* 형제요소이기 때문에 변수 사용이 안됨 */
   font-size: var(--font-size);
 }
