@@ -1,3 +1,35 @@
 * {
   font-family: "Noto Sans KR", sans-serif;
 }
+/* 
+custom properties 
+변수선언
+  --단어-단어;
+  카멜케이스보다는 -를 사용해서 단어(변수)를 정리해줌
+변수의 범위
+  자식요소에는 상속이 가능하나, 형제요소에는 상속이 불가능함
+  이렇게 자식요소에게만 상속이 가능해서 
+  대게 css에서 변수를 선언할 때는 -> :root{}에 선언해줌(가장 최상위 요소) 
+*/
+
+.first-list {
+  background: thistle;
+  margin-left: 8px;
+  /* 변수 정의 */
+  --font-size: 32px;
+  /* 변수 읽기 */
+  font-size: var(--font-size);
+}
+
+/* first-list의 자식요소인 li에는 접근이 가능함 */
+.first-list li {
+  font-size: var(--font-size);
+}
+
+.second-list {
+  background: thistle;
+  color: whitesmoke;
+  margin-left: 16px;
+  /* 형제요소이기 때문에 변수 사용이 안됨 */
+  font-size: var(--font-size);
+}
