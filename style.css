@@ -14,21 +14,43 @@ custom properties
 :root {
   /* 최상위 루트에 변수 정의 - 모든 node에서 사용이 가능해짐 */
   --font-size: 32px;
+  /* bgc가 변할때 한번만 수정할 수 있게 해줌 */
+  --background-color: thistle;
+  /* default가 되는 margin-left가 있다면 이것도 선언해서 사용가능 */
+  --base-space: 8px;
+  /* 변수명에 어디에서 쓰이는 건지 정확하게 명시해주는 것이 좋음 */
+  --text-color: whitesmoke;
 }
 
 .first-list {
-  background: thistle;
-  margin-left: 8px;
-  font-size: var(--font-size);
-}
-
-.first-list li {
-  font-size: var(--font-size);
+  background: var(--background-color);
+  color: var(--text-color);
+  margin-left: var(--base-space);
+  /* var에서 전달된 값이 없을경우 '기본값'을 지정할 수 있음 */
+  font-size: var(--font-size, 8);
 }
 
 .second-list {
-  background: thistle;
-  color: whitesmoke;
-  margin-left: 16px;
+  background: var(--background-color);
+  color: var(--text-color);
   font-size: var(--font-size);
+  /* calc() */
+  margin-left: calc(var(--base-space) * 2);
 }
+
+/* custom properties가 가장 유용하게 사용될 때 */
+@media screen and (max-width: 768px) {
+  /* 변수를 정의한 것을 복사해서 media query에서 변경이 가능함*/
+  :root {
+    --font-size: 32px;
+    --background-color: salmon;
+    --base-space: 4px;
+    --text-color: blue;
+  }
+}
+
+/* 
+css에서 수학을 이용해 계산을 해주는 함수  
+  calc()함수
+  ()안에서 계산을 가능하게 해줌
+*/
