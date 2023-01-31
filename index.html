@@ -23,18 +23,34 @@
     <!-- favicon -->
     <link rel="icon" type="image/png" href="images/favicon-96x96.png" />
     <link rel="stylesheet" href="style.css" />
-    <!-- defer : html이 parsing되는 동안 js파일을 동시에 다운로드 받아서  -->
     <script src="./main.js" defer></script>
   </head>
   <body>
-    <ul class="first-list">
-      <li>Orange</li>
-      <li>Apple</li>
-    </ul>
-    <ul class="second-list">
-      <li>Korea</li>
-      <li>Japan</li>
-      <li>China</li>
-    </ul>
+    <!-- 
+      * data attributes
+      id, class, name, cols등 기본적으로 제공하는 요소 외에 우리가 필요한 요소를 지정하고 싶을 때 사용이 가능함
+      data-원하는 이름을 넣어주면 됨
+      * html에서 기본으로 제공해주는 속성은 아니지만, 우리가 원하는 데이터를 넣은 데이터 어트리뷰트 사용이 가능함  
+    -->
+
+    <!-- data attributes 예시 -->
+    <div data-index="1" data-display-name="first"></div>
+    <div data-index="2" data-display-name="second"></div>
+    <!-- div -> sapn으로 바껴도 사용이 가능함 -->
+    <span data-index="1" data-display-name="first">hello</span>
+    <script>
+      // query selector는 우리가 css에서 쓰는 모든 것을 그대로 사용이 가능하게 해줌
+      // 첫번째 div만 선택해서 보여줄 것
+      // <div data-index="1" data-display-name="first"></div>
+      // const first = document.querySelector("div");
+      // ' "구분해줄 것 " '
+      const first = document.querySelector('div[data-display-name="first"]');
+      // first에 선택되어진 dataset확인
+      console.log(first.dataset); //DOMStringMap
+      console.log(first.dataset.displayName); //first
+      console.log(first.dataset.index); //1
+      // html의 data는 개발자 도구에서 모두 볼 수 있음
+      // 따라서 사용자에게 민감한 "개인정보"와 같은 데이터들은 암호화해서 js안에 보관하는 것이 좋음
+    </script>
   </body>
 </html>
