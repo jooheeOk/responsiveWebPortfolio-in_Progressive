@@ -37,4 +37,4 @@
 <hr>
 <br>
 
-#### 🔗 &nbsp;[👉 '반응형 웹 포트폴리오'를 자세히 보고싶다면 클릭하세요!](https://kingdom3eventpagebyjoohee.netlify.app/)
+#### 🔗 &nbsp;[👉 '반응형 웹 포트폴리오'를 자세히 보고싶다면 클릭하세요!](https://joohee-responsive-web-portfolio.netlify.app/)
