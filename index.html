@@ -26,31 +26,277 @@
     <script src="./main.js" defer></script>
   </head>
   <body>
-    <!-- 
-      * data attributes
-      id, class, name, cols등 기본적으로 제공하는 요소 외에 우리가 필요한 요소를 지정하고 싶을 때 사용이 가능함
-      data-원하는 이름을 넣어주면 됨
-      * html에서 기본으로 제공해주는 속성은 아니지만, 우리가 원하는 데이터를 넣은 데이터 어트리뷰트 사용이 가능함  
-    -->
-
-    <!-- data attributes 예시 -->
-    <div data-index="1" data-display-name="first"></div>
-    <div data-index="2" data-display-name="second"></div>
-    <!-- div -> sapn으로 바껴도 사용이 가능함 -->
-    <span data-index="1" data-display-name="first">hello</span>
-    <script>
-      // query selector는 우리가 css에서 쓰는 모든 것을 그대로 사용이 가능하게 해줌
-      // 첫번째 div만 선택해서 보여줄 것
-      // <div data-index="1" data-display-name="first"></div>
-      // const first = document.querySelector("div");
-      // ' "구분해줄 것 " '
-      const first = document.querySelector('div[data-display-name="first"]');
-      // first에 선택되어진 dataset확인
-      console.log(first.dataset); //DOMStringMap
-      console.log(first.dataset.displayName); //first
-      console.log(first.dataset.index); //1
-      // html의 data는 개발자 도구에서 모두 볼 수 있음
-      // 따라서 사용자에게 민감한 "개인정보"와 같은 데이터들은 암호화해서 js안에 보관하는 것이 좋음
-    </script>
+    <!-- Navbar -->
+    <nav id="navbar">
+      <div class="navbar__logo">
+        <img
+          style="width: 60px"
+          src="./images/faviconTransparentVer.png"
+          alt="icon"
+        />
+        <a href="#"> <h3>junior FE developer's Portfolio</h3></a>
+      </div>
+      <div class="navbar__menu">
+        <ul class="navbar__menu">
+          <li class="navbar__menu__item" data-link="#home">HOME</li>
+          <li class="navbar__menu__item" data-link="#about">ABOUT</li>
+          <li class="navbar__menu__item" data-link="#skills">SKILLS</li>
+          <li class="navbar__menu__item" data-link="#work">WORK</li>
+          <li class="navbar__menu__item" data-link="#contact">CONTACT</li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Home -->
+    <section id="home">
+      <div class="home__Container">
+        <img
+          src="./images/profile.jpeg"
+          alt="Joohee profile image"
+          class="home__avatar"
+        />
+        <h1 class="home__title">Junior FE jooheeOk</h1>
+        <h2 class="home__description">
+          기획, 디자인, 퍼블리싱이 가능한 다재다능한 프론트엔드 개발자입니다 😎
+          <br />더 멋진 개발자가되기 위해서 열심히 학습하고 있습니다.
+        </h2>
+        <button class="home__contact" data-link="#contact">CONTACT ME!</button>
+      </div>
+    </section>
+    <!-- About -->
+    <section id="about">
+      <h1>About ME!</h1>
+      <p>
+        반응형 웹 포트폴리오를 만들기 위해 test중입니다. 내용은 추후 수정 및
+        보완예정입니다.
+      </p>
+      <div class="about__majors">
+        <div class="major">
+          <div class="major__icon">
+            <i class="fa-brands fa-stack-overflow"></i>
+          </div>
+          <h2 class="major__title">Front-end</h2>
+          <div class="major__description">
+            HTML, CSS, JavaScript, TypeScript,
+            <br />React, Vue, Web APIs
+          </div>
+        </div>
+        <div class="major">
+          <div class="major__icon">
+            <i class="fa-solid fa-pen-ruler"></i>
+          </div>
+          <h2 class="major__title">Design</h2>
+          <p class="major__description">
+            Photoshop, Illustration, Indesign 등의
+            <br />
+            툴 사용이 가능합니다.
+          </p>
+        </div>
+        <div class="major">
+          <div class="major__icon">
+            <i class="fa-solid fa-ruler-combined"></i>
+          </div>
+          <h2 class="major__title">Planning</h2>
+          <p class="major__description">
+            Figma, Notion, Github 등의
+            <br />툴 사용이 가능합니다.
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- Skills -->
+    <section id="skills">
+      <h1>Skills</h1>
+      <h2>Skills & Attributes</h2>
+      <p>
+        반응형 웹 포트폴리오를 만들기 위해 test중입니다. 내용은 추후 수정 및
+        보완예정입니다.
+      </p>
+      <div class="skillset">
+        <div class="skillset__left">
+          <h3 class="skillset__title">Skills</h3>
+          <!-- <div class="skill">
+            <div class="skill_description">
+              <span>HTML</span>
+              <span>90%</span>
+            </div>
+            <div class="skill__bar">
+              <div class="skill__value"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="skill__description">
+              <span>CSS</span>
+              <span>85%</span>
+            </div>
+            <div class="skill__bar">
+              <div class="skill__value" style="width: 85%"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="skill__description">
+              <span>JavaScript</span>
+              <span>80%</span>
+            </div>
+            <div class="skill__bar">
+              <div class="skill__value" style="width: 80%"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="skill__description">
+              <span>Test</span>
+              <span>70%</span>
+            </div>
+            <div class="skill__bar">
+              <div class="skill__value" style="width: 70%"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="skill__description">
+              <span>Test</span>
+              <span>65%</span>
+            </div>
+            <div class="skill__bar">
+              <div class="skill__value" style="width: 65%"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="skill__description">
+              <span>Test</span>
+              <span>65%</span>
+            </div>
+            <div class="skill__bar">
+              <div class="skill__value" style="width: 77%"></div>
+            </div>
+          </div> -->
+        </div>
+        <div class="skillset__right">
+          <div class="tools">
+            <h3 class="skillset__title">Tools</h3>
+            <!-- <ul class="tools__list">
+              <li><span>Tool_1</span></li>
+              <li><span>Tool_2</span></li>
+              <li><span>Tool_3</span></li>
+              <li><span>Tool_4</span></li>
+              <li><span>Tool_5</span></li>
+            </ul> -->
+          </div>
+          <div class="etc">
+            <h3 class="skillset__title">Etc</h3>
+            <ul class="etc__list">
+              <li><span>Design</span></li>
+              <li><span>Planning</span></li>
+              <li><span>Cooperation</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Work -->
+    <section id="work">
+      <h1>Work</h1>
+      <h3>Projects</h3>
+      <div class="work__categories">
+        <button class="category__btn" data-filter="*">
+          ALL <span class="category__count">4</span>
+        </button>
+        <button class="category__btn" data-filter="project-team">
+          Team project <span class="category__count">2</span>
+        </button>
+        <button class="category__btn" data-filter="project-personal">
+          Personal project <span class="category__count">2</span>
+        </button>
+      </div>
+      <div class="work__projects">
+        <!-- project1 kingdom -->
+        <a
+          href="https://github.com/jooheeOk/sesac-kingom-event-site"
+          class="project"
+          data-type="project-personal"
+          target="blank"
+          data-filter="personal-project"
+        >
+          <img src="images/kingdom3.jpg" alt="kingdom3" class="project__img" />
+          <div class="project__description">
+            <h3>Kingdom3 event page</h3>
+            <span
+              >sesac에서 진행한 개인 프로젝트입니다. netflix의 시리즈물인
+              kingdom3의 시사회 페이지를 구현했습니다. 구현했습니다.</span
+            >
+          </div>
+        </a>
+        <!-- project2 docuchain -->
+        <a
+          href="https://github.com/jooheeOk/sesac-teamProject-Digitalzone-Docuchain"
+          class="project"
+          data-type="project-team"
+          target="blank"
+        >
+          <img
+            class="project__img"
+            src="images/webPortfolio.jpg"
+            alt="docuchain"
+          />
+          <div class="project__description">
+            <h3>Docuchain admin page</h3>
+            <span
+              >sesac에서 진행한 기업연계 팀프로젝트입니다. Digitalzone의 자사
+              Docuchain의 관리자 페이지를 구현했습니다.</span
+            >
+          </div>
+        </a>
+        <!-- project3 joohee responsive portfolio -->
+        <a
+          href="https://github.com/jooheeOk/responsiveWebPortfolio"
+          class="project"
+          data-type="project-personal"
+          target="blank"
+        >
+          <img class="project__img" src="images/docuchain.jpg" alt="navbar" />
+          <div class="project__description">
+            <h3>
+              joohee's responsive <br />
+              web portfolio
+            </h3>
+            <span>반응형 웹 포트폴리오를 제작중에 있습니다.</span>
+          </div>
+        </a>
+        <!-- project4 준비중 / 반응형 보기 위해서 넣어둠 -->
+        <a href="" class="project" data-type="project-team">
+          <img
+            class="project__img"
+            src="/images/lefoBricks2.jpeg"
+            alt="준비중"
+            data-type="project-team"
+          />
+          <div class="project__description">
+            <h3>준비중입니다.</h3>
+            <span>준비중입니다.</span>
+          </div>
+        </a>
+      </div>
+    </section>
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="contact__email">
+        <i class="fa-solid fa-envelope"
+          ><span class="contact__email">: jooheeok92@gmail.com</span></i
+        >
+      </div>
+      <div class="contact__links">
+        <a href="https://github.com/jooheeOk" target="_blank">
+          <i class="fab fa-github"
+            ><span>: https://github.com/jooheeOk</span></i
+          >
+        </a>
+      </div>
+      <p class="contact__rights">
+        끊임없이 성장하는 프론트엔드 개발자가 되겠습니다.
+      </p>
+    </section>
+    <!-- arrow__upBtn -->
+    <button class="arrow__icon">
+      <i class="fa-light fa-up">up</i>
+    </button>
   </body>
 </html>
